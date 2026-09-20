@@ -5,6 +5,8 @@
 > Traditional OCR only digitizes a document. BhoomiLens goes one step further: it extracts land information, checks its consistency against reference records, identifies uncertainty, routes suspicious records to human reviewers, and guides the user toward official-source verification.
 
 ---
+## 🚀 Live Demo
+https://bhoomi-lens-omega.vercel.app
 
 ## What BhoomiLens is (and is not)
 
