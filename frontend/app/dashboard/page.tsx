@@ -45,7 +45,7 @@ export default function DashboardPage() {
           <p className="mt-2 text-brand-400">No issues recorded yet.</p>
         ) : (
           <ul className="mt-4 divide-y divide-brand-100">
-            {Object.entries(data.validation_issues)
+            {(Object.entries(data.validation_issues) as [string, number][])
               .sort((a, b) => b[1] - a[1])
               .map(([kind, count]) => (
                 <li key={kind} className="py-2 flex justify-between">
