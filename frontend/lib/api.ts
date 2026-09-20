@@ -62,7 +62,7 @@ export type Record = {
   state?: string;
   document_url?: string;
   document_content_type?: string;
-  field_confidence?: Record<string, number>;
+  field_confidence?: { [key: string]: number };
   official_portal?: {
     state?: string;
     label?: string;
@@ -82,7 +82,7 @@ export type DashboardMetrics = {
   pending: number;
   rejected: number;
   average_extraction_confidence: number;
-  validation_issues: Record<string, number>;
+  validation_issues: { [key: string]: number };
   generated_at: string;
 };
 
