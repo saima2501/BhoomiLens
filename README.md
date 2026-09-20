@@ -8,6 +8,10 @@
 ## 🚀 Live Demo
 https://bhoomi-lens-omega.vercel.app
 
+**Demo Credentials**
+- Username: `demo@bhoomilens.local`
+- Password: `BhoomiLens@Demo2026!`
+
 ## What BhoomiLens is (and is not)
 
 BhoomiLens is a **hackathon MVP** for the AWS Bharat Builds Tour / First Commit hackathon. It is a serious AWS-native prototype that separates four concerns most "land record AI" demos conflate:
