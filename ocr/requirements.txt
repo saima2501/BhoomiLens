@@ -4,7 +4,7 @@ boto3>=1.34,<2.0
 # PaddleOCR + its runtime. Hindi and English models are downloaded to /tmp
 # on cold start.
 paddleocr==2.7.3
-paddlepaddle==2.6.1
+paddlepaddle==2.6.2
 
 # PDF → image conversion. pdf2image needs poppler installed via the
 # base image's dnf, which we do in the Dockerfile.

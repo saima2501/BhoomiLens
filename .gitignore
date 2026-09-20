@@ -54,3 +54,8 @@ logs/
 data/uploads/
 data/local_test_outputs/
 scripts/local_output/
+
+# Extra user specified
+frontend/.env.local
+.env.*
+*.pyc

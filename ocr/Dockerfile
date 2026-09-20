@@ -19,11 +19,13 @@ RUN dnf install -y \
       libXext \
       libXrender \
       shadow-utils \
+      poppler-utils \
+      libgomp \
     && dnf clean all
 
 # ---- Python deps ----------------------------------------------------------
 COPY ocr/requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir setuptools -r /tmp/requirements.txt
 
 # ---- App code ------------------------------------------------------------
 # Backend shared modules are optional here (OCR does not need them at runtime),

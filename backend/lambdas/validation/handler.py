@@ -116,11 +116,24 @@ def _coerce_float(x: Any) -> Optional[float]:
 def handler(event: dict, _context) -> dict:
     logger.info("Validation event: %s", json.dumps(event, default=str)[:2000])
 
-    extracted_payload = event.get("extracted") or {}
+    # Step Functions stores the extraction Lambda output at $.extraction
+    # (resultPath='$.extraction'), so the nested path is:
+    #   event["extraction"]["extracted"], event["extraction"]["ocr_confidence"], …
+    # We fall back to the top-level keys for direct invocations / test events.
+    _extraction = event.get("extraction") or {}
+    extracted_payload = (
+        event.get("extracted")
+        or _extraction.get("extracted")
+        or {}
+    )
     record = ExtractedRecord.from_dict(extracted_payload)
-    ocr_confidence = _coerce_float(event.get("ocr_confidence"))
-    extraction_confidence = _coerce_float(event.get("extraction_confidence"))
-    record_id = event.get("record_id")
+    ocr_confidence = _coerce_float(
+        event.get("ocr_confidence") or _extraction.get("ocr_confidence")
+    )
+    extraction_confidence = _coerce_float(
+        event.get("extraction_confidence") or _extraction.get("extraction_confidence")
+    )
+    record_id = event.get("record_id") or _extraction.get("record_id")
 
     policy: ConfidencePolicy = policy_from_env()
 

@@ -25,7 +25,10 @@ export default function UploadPage() {
       setStatus("Uploading to S3 …");
       const putRes = await fetch(meta.upload_url, {
         method: "PUT",
-        headers: { "Content-Type": file.type || "application/octet-stream" },
+        headers: {
+          "Content-Type": file.type || "application/octet-stream",
+          "x-amz-meta-original-filename": file.name,
+        },
         body: file,
       });
       if (!putRes.ok) throw new Error(`S3 PUT failed: ${putRes.status}`);
@@ -72,3 +75,5 @@ export default function UploadPage() {
     </div>
   );
 }
+
+

@@ -122,8 +122,8 @@ export default function RecordDetailPage({ params }: { params: { id: string } })
         <div className="card text-sm text-brand-700">{notice}</div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="card">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <section className="card lg:col-span-3">
           <h2 className="text-sm uppercase tracking-wide text-brand-400 mb-3">
             Original document
           </h2>
@@ -133,7 +133,7 @@ export default function RecordDetailPage({ params }: { params: { id: string } })
           />
         </section>
 
-        <section className="card">
+        <section className="card lg:col-span-2">
           <h2 className="text-sm uppercase tracking-wide text-brand-400 mb-3">
             Extracted fields
           </h2>
